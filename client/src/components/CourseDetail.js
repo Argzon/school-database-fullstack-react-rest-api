@@ -35,8 +35,6 @@ const CourseDetail = (props) => {
       .catch((err) => history.push("/error"));
   }, [id, history]);
 
-  console.log(user);
-
   // Function to handle deleting a course
   const handleDelete = () => {
     // Fetch the course with matching id and delete it
