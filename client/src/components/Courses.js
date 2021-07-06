@@ -1,36 +1,52 @@
-import { useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
-import axios from "axios";
+// Import Modules
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
+// Function to get a list of all the courses from the database
 const Courses = () => {
+  // Set state for list of Courses
   const [courses, setCourses] = useState([]);
+  let history = useHistory();
 
-  // get courses from api
-  const getCourses = () => {
-    axios.get("http://localhost:5000/api/courses").then((response) => {
-      setCourses(response.data);
-    });
-  };
-
-  // get data on page render
+  // Pull courses from API and set state with Courses
   useEffect(() => {
-    getCourses();
-  }, []);
+    fetch("http://localhost:5000/api/courses")
+      .then((res) => {
+        // Handle errors
+        if (res.status === 200) {
+          return res.json().then((res) => setCourses(res));
+        } else if (res.status === 500) {
+          history.push("/error");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        history.push("/error");
+      });
+  }, [history]);
+
   return (
     <main>
       <div className="wrap main--grid">
-        {courses.map((course) => (
-          <NavLink
-            className="course--module course--link"
-            to={`/courses/${course.id}`} key={course.id}
-          >
-            <h2 className="course--label">Course</h2>
-            <h3 className="course--title">{course.title}</h3>
-          </NavLink>
-        ))}
-        <NavLink
+        {courses.length > 0
+          ? courses.map((course) => {
+              return (
+                <Link
+                  key={course.id}
+                  className="course--module course--link"
+                  to={`courses/${course.id}`}
+                >
+                  <h2 className="course--label">Course</h2>
+                  <h3 className="course--title">{course.title}</h3>
+                </Link>
+              );
+            })
+          : null}
+
+        <Link
           className="course--module course--add--module"
-          to="/course/create"
+          to="/courses/create"
         >
           <span className="course--add--title">
             <svg
@@ -45,7 +61,7 @@ const Courses = () => {
             </svg>
             New Course
           </span>
-        </NavLink>
+        </Link>
       </div>
     </main>
   );
