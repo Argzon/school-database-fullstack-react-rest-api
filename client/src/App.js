@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import { Switch, Route, BrowserRouter } from "react-router-dom";
 
 // import components
+import Header from "./components/Header";
 import Courses from "./components/Courses";
 import CourseDetail from "./components/CourseDetail";
 
 const App = () => {
   return (
     <div>
+      <Header />
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Courses} />
