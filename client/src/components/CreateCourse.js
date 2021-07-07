@@ -3,7 +3,7 @@ import { useHistory } from "react-router-dom";
 import { useAuth } from "./useAuth";
 
 // Function to Create a new course ** Needs Auth **
-export default function CreateCourse() {
+const CreateCourse = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [estimatedTime, setEstimatedTime] = useState("");
@@ -116,4 +116,6 @@ export default function CreateCourse() {
       </form>
     </div>
   );
-}
+};
+
+export default CreateCourse;
