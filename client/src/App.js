@@ -6,20 +6,20 @@ import {
   Redirect,
 } from "react-router-dom";
 
-import { ProvideAuth } from "./Components/useAuth";
-import Header from "./Components/Header";
-import Courses from "./Components/Courses";
-import CourseDetail from "./Components/CourseDetail";
-import UserSignIn from "./Components/UserSignIn";
-import UserSignUp from "./Components/UserSignUp";
-import UserSignOut from "./Components/UserSignOut";
-import CreateCourse from "./Components/CreateCourse";
-import UpdateCourse from "./Components/UpdateCourse";
-import PrivateRoute from "./Components/PrivateRoute";
-import Error401 from "./Components/Error401";
-import UnhandledError from "./Components/UnhandledError";
-import NotFound from "./Components/NotFound";
-import Forbidden from "./Components/Forbidden";
+import { ProvideAuth } from "./components/useAuth";
+import Header from "./components/Header";
+import Courses from "./components/Courses";
+import CourseDetail from "./components/CourseDetail";
+import UserSignIn from "./components/UserSignIn";
+import UserSignUp from "./components/UserSignUp";
+import UserSignOut from "./components/UserSignOut";
+import CreateCourse from "./components/CreateCourse";
+import UpdateCourse from "./components/UpdateCourse";
+import PrivateRoute from "./components/PrivateRoute";
+import Error401 from "./components/Error401";
+import UnhandledError from "./components/UnhandledError";
+import NotFound from "./components/NotFound";
+import Forbidden from "./components/Forbidden";
 
 function App() {
   return (
