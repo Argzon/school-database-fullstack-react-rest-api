@@ -11,7 +11,6 @@ const CreateCourse = () => {
   const [errors, setErrors] = useState([]);
   let history = useHistory();
   let auth = useAuth();
-
   // Helper function to handle the cancel button... redirect to '/'
   const handleCancel = () => {
     history.push("/");
@@ -25,6 +24,7 @@ const CreateCourse = () => {
       description,
       estimatedTime,
       materialsNeeded,
+      userId: auth.user.id,
     };
     const options = {
       method: "POST",
