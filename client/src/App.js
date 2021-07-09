@@ -27,9 +27,7 @@ function App() {
       <Router>
         <Header />
         <Switch>
-          <Route exact path="/">
-            <Redirect to="/courses" />
-          </Route>
+          <Route exact path="/" component={Courses} />
           <Route exact path="/courses" component={Courses} />
           <PrivateRoute path="/courses/create">
             <CreateCourse />
