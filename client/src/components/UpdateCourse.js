@@ -43,7 +43,6 @@ export default function UpdateCourse() {
   // Handles the form submittal
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevents default form action
-    console.log(auth);
     const body = {
       title,
       description,

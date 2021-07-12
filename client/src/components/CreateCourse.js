@@ -47,7 +47,6 @@ const CreateCourse = () => {
         }
       })
       .catch((err) => {
-        console.log(err);
         history.push("/error");
       });
   };

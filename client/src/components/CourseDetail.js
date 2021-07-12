@@ -13,7 +13,6 @@ const CourseDetail = (props) => {
   let { id } = useParams();
   let auth = useAuth();
   let history = useHistory();
-  // console.log(auth.user);
 
   // Fetch Course Detail by 'id' using params
   useEffect(() => {
